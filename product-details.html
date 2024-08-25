@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="icon" href="images/olg.png" type="image/x-icon">
+    <link rel="stylesheet" href="endd.css">
+</head>
+<body>
+    <div class="btnn"><a href="indez.html"><button>Keep Shopping</button></a></div>
+    <div class="container">
+        <header>
+            <h1>Product Details:</h1>
+            <div class="iconCart">
+                <img src="images/ccc.jpg" alt="Cart Icon">
+                <div class="totalQuantity">0</div>
+            </div>
+        </header>
+        <div class="product-details">
+            <div class="gallery">
+                <div class="main-image">
+                    <img id="mainImage" src="" alt="Main Product Image">
+                </div>
+                <div class="thumbnails">
+                    <!-- Thumbnail images will be dynamically inserted here -->
+                </div>
+            </div>
+            <div class="product-info">
+                <h1 id="productName"></h1>
+                <div class="price" id="productPrice"></div>
+                <p id="productDescription"></p>
+                <button id="addToCartButton">Add To Cart</button>
+                <button id="buyNowButton">Buy Now</button>
+            </div>
+        </div>
+    </div>
+    <div class="cart">
+        <h2>Cart</h2>
+        <div class="listCart"></div>
+        <div class="buttons">
+            <div class="close">Close</div>
+            <div class="checkout"><a href="checkout.html"><button>Checkout</button></a></div>
+        </div>
+    </div>
+    <script src="product-details.js"></script>
+</body>
+</html>

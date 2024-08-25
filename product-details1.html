@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="product-details"></div>
+
+    <script>
+        let productId = new URLSearchParams(window.location.search).get('id');
+        let products = null;
+
+        fetch('product.json')
+            .then(response => response.json())
+            .then(data => {
+                products = data;
+                showProductDetails(productId);
+            });
+
+        function showProductDetails(id) {
+            let product = products.find(p => p.id == id);
+            if(product) {
+                document.getElementById('product-details').innerHTML = `
+                    <h1>${product.name}</h1>
+                    <img src="${product.image}" alt="${product.name}">
+                    <p>Price: $${product.price}</p>
+                    <p>${product.description}</p>
+                    <button onclick="addCart(${product.id})">Add To Cart</button>`;
+            }
+        }
+
+        function addCart(idProduct){
+            let product = products.find(p => p.id == idProduct);
+            if(!listCart[idProduct]) {
+                listCart[idProduct] = product;
+                listCart[idProduct].quantity = 1;
+            } else {
+                listCart[idProduct].quantity++;
+            }
+            document.cookie = "listCart=" + JSON.stringify(listCart) + "; expires=Thu, 31 Dec 2025 23:59:59 UTC; path=/;";
+            alert('Product added to cart!');
+        }
+    </script>
+</body>
+</html>

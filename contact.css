@@ -1,0 +1,10 @@
+body{
+    background-color: rgb(255, 252, 248);
+}
+body h1{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body li{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2em;
+}

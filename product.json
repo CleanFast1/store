@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "name": "Powerful Cleaning Brush",
+        "price": 9,
+        "image": "images/ss.png",
+        "images": [
+          "images/ss.png",
+          "images/sss.png",
+          "images/fir.png"
+        ],
+        "description": "The Powerful Cleaning Brush is a heavy-duty, versatile tool designed for deep cleaning with minimal effort. Its durable bristles effectively tackle tough grime and dirt on various surfaces, including tiles, grout, and carpets."
+    }
+    ,
+    {
+        "id": 2,
+        "name": "Xiaomi 6-in-1 cleaning Brush",
+        "price": 55,
+        "image": "images/f1.png",
+        "images": [
+            "images/t1.jpg",
+            "images/f1.png",
+            "images/t3.jpg"
+          ],
+        "description": "The Xiaomi 6-in-1 Brush is a cordless, rotary cleaning tool with a 2000 MA battery. It features six interchangeable heads for effortless cleaning of showers, kitchens, and bathrooms. Ideal for tackling dirt and grime on various surfaces."
+    }
+]
