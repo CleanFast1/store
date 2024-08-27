@@ -4,6 +4,7 @@ let container = document.querySelector('.container');
 let close = document.querySelector('.close');
 let productDetails = document.querySelector('.product-details');
 let listCart = [];
+let products = [];
 
 // Function to update the cart display
 function updateCartDisplay() {
@@ -35,26 +36,23 @@ function updateCartDisplay() {
     totalHTML.innerText = totalQuantity;
 }
 
-// Function to add a product to the cart
+// Updated Function to add a product to the cart
 function addCart(productId) {
-    fetch('product.json')
-        .then(response => response.json())
-        .then(products => {
-            let productsCopy = JSON.parse(JSON.stringify(products));
-            let product = productsCopy.find(p => p.id == productId);
+    let product = products.find(p => p.id == productId);
 
-            if (product) {
-                let existingProduct = listCart.find(p => p.id === productId);
-                if (!existingProduct) {
-                    product.quantity = 1;
-                    listCart.push(product);
-                } else {
-                    existingProduct.quantity++;
-                }
-                document.cookie = "listCart=" + JSON.stringify(listCart) + "; expires=Thu, 31 Dec 2025 23:59:59 UTC; path=/;";
-                updateCartDisplay();
-            }
-        });
+    if (product) {
+        let existingProduct = listCart.find(p => p.id === productId);
+        if (existingProduct) {
+            // Update quantity if the product is already in the cart
+            existingProduct.quantity++;
+        } else {
+            // Add the product to the cart if it's not already present
+            product.quantity = 1;
+            listCart.push(product);
+        }
+        document.cookie = "listCart=" + JSON.stringify(listCart) + "; expires=Thu, 31 Dec 2025 23:59:59 UTC; path=/;";
+        updateCartDisplay();
+    }
 }
 
 // Function to change the quantity of a product
@@ -86,7 +84,8 @@ function loadProductDetails() {
 
     fetch('product.json')
         .then(response => response.json())
-        .then(products => {
+        .then(data => {
+            products = data; // Store products globally
             const product = products.find(p => p.id == productId);
             if (product) {
                 document.getElementById('mainImage').src = product.image;
@@ -117,7 +116,7 @@ function loadProductDetails() {
 }
 
 // Cart icon functionality
-iconCart.addEventListener('click', function(){
+iconCart.addEventListener('click', function() {
     if(cart.style.right == '-100%'){
         cart.style.right = '0';
         container.style.transform = 'translateX(-400px)';

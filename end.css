@@ -244,6 +244,12 @@ header .totalQuantity {
         gap: 20px;
         margin-left: 20%;
     }
+    .container header h1{
+        margin-left: 10%;
+    }
+    .cart{
+        height: 85vh;
+    }
     .checkoutLayout {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
