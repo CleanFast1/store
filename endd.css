@@ -267,4 +267,7 @@ header .totalQuantity {
         height: 80%;
         font-size: medium;
     }
+    .cart{
+        height: 85vh;
+    }
 }
